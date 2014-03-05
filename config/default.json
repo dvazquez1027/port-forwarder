@@ -1,0 +1,8 @@
+{
+    "server" : {
+    },
+    "client" : {
+        "host" : "www.yahoo.com",
+        "port" : 80
+    }
+}

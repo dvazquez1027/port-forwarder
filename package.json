@@ -1,0 +1,21 @@
+{
+    "name": "port-forwarder",
+    "description": "",
+    "version": "0.0.1",
+    "main": "./port-forwarder.js",
+    "author": {
+        "name": "david",
+        "email": "you@email.example"
+    },
+    "keywords": [],
+    "licenses": {
+        "type": "none"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/YOUR_LOGIN/port-forwarder.git"
+    },
+    "bugs": {
+        "url": "http://github.com/YOUR_LOGIN/port-forwarder/issues"
+    }
+}
