@@ -5,14 +5,21 @@ function Connection(options, s) {
         return new Connection(c);
     }
     
-    this.s = s;
+    console.log('Connected from ' + s.remoteAddress);
+    
     this.options = options;
-}
-
-Connection.prototype.run = function () {
+    this.s = s;
+    this.remoteAddress = this.s.remoteAddress;
+    
+    this.s.on('close', this._onClose.bind(this));
+    
     this.c = net.connect(this.options);
     this.s.pipe(this.c);
     this.c.pipe(this.s);
+};
+
+Connection.prototype._onClose = function () {
+    console.log('Connection closed from ' + this.remoteAddress);
 };
 
 module.exports.Connection = Connection;
