@@ -4,8 +4,8 @@
     "version": "0.0.1",
     "main": "./port-forwarder.js",
     "author": {
-        "name": "david",
-        "email": "you@email.example"
+        "name": "David Vazquez",
+        "email": "david.vazquez@va.gov"
     },
     "keywords": [],
     "licenses": {
@@ -13,9 +13,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/YOUR_LOGIN/port-forwarder.git"
+        "url": "git://github.com/dvazquez1027/port-forwarder.git"
     },
     "bugs": {
-        "url": "http://github.com/YOUR_LOGIN/port-forwarder/issues"
+        "url": "http://github.com/dvazquez1027/port-forwarder/issues"
+    },
+    "dependencies" : {
+        "underscore": "*",
+        "config" : "*"
     }
 }
