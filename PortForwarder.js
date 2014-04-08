@@ -9,8 +9,12 @@ var config = require('config');
 var _ = require('underscore');
 var Connection = require('./Connection').Connection;
 
-function PortForwarder(options) {
-    this.options = options;
+function PortForwarder(config) {
+    if (!(this instanceof PortForwarder)) {
+        return new PortForwarder();
+    }
+    
+    this.config = config;
 }
 
 PortForwarder.DEFAULT_SERVER_PORT = 6000;
@@ -22,7 +26,7 @@ PortForwarder.prototype.main = function () {
 };
 
 PortForwarder.prototype._onConnection = function (c) {
-    new Connection(config.client, c);
+    new Connection(this.config.client, c);
 };
 
 PortForwarder.prototype._onListen = function () {
@@ -30,7 +34,7 @@ PortForwarder.prototype._onListen = function () {
 };
 
 PortForwarder.prototype._getServerPort = function () {
-    return !_.isUndefined(config.server) && !_.isUndefined(config.server.port) && _.isNumber(config.server.port) ? config.server.port : PortForwarder.DEFAULT_SERVER_PORT;
+    return !_.isUndefined(this.config.server) && !_.isUndefined(this.config.server.port) && _.isNumber(this.config.server.port) ? this.config.server.port : PortForwarder.DEFAULT_SERVER_PORT;
 };
 
 new PortForwarder(config).main();
